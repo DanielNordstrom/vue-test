@@ -1,14 +1,14 @@
 import Vue from 'vue'
-
+import api_key from '@/api_key'
 
 const headers = {
-  'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MjI0MjMzNDMsImlhdCI6MTUyMjMzNjkzOCwic3ViIjoyfQ.CC1QFLrEaOvlIe4IdcCCqcCMty34mjNpksc1QnZx-aI'
+  'Authorization': `Bearer ${api_key}`
 }
 
 
-export function fetchUsers() {
+export function fetchTodos() {
   return new Promise((resolve, reject) => {
-    Vue.http.get('http://localhost:5000/users', {
+    Vue.http.get('http://localhost:5000/todos', {
       headers
     })
     .then(response => { resolve(response.data) })
@@ -17,9 +17,9 @@ export function fetchUsers() {
 }
 
 
-export function createUser(user) {
+export function createTodo(todo) {
   return new Promise((resolve, reject) => {
-    Vue.http.post('http://localhost:5000/users', user, {
+    Vue.http.post('http://localhost:5000/todos', todo, {
       headers
     })
     .then(response => { resolve(response.data) })
@@ -28,9 +28,9 @@ export function createUser(user) {
 }
 
 
-export function updateUser(uri, user) {
+export function updateTodo(uri, todo) {
   return new Promise((resolve, reject) => {
-    Vue.http.post('http://localhost:5000'+uri, user, {
+    Vue.http.post('http://localhost:5000'+uri, todo, {
       headers
     })
     .then(response => { resolve(response.data) })
@@ -39,7 +39,7 @@ export function updateUser(uri, user) {
 }
 
 
-export function deleteUser(uri) {
+export function deleteTodo(uri) {
   return new Promise((resolve, reject) => {
     Vue.http.delete('http://localhost:5000'+uri, {
       headers
@@ -51,8 +51,8 @@ export function deleteUser(uri) {
 
 
 export default {
-  fetchUsers: fetchUsers,
-  createUser: createUser,
-  updateUser: updateUser,
-  deleteUser: deleteUser
+  fetchTodos: fetchTodos,
+  createTodo: createTodo,
+  updateTodo: updateTodo,
+  deleteTodo: deleteTodo
 }

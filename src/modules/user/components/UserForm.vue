@@ -35,7 +35,7 @@ import { createNamespacedHelpers } from 'vuex'
 
 import actions from '../actions'
 
-const namespace = 'users'
+const namespace = 'user'
 const { mapActions } = createNamespacedHelpers(namespace)
 
 

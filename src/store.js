@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import todos from './modules/todos'
-import users from './modules/users'
+import todo from './modules/todo'
+import user from './modules/user'
+import auth from './modules/auth'
+
 
 Vue.use(Vuex)
 
@@ -11,9 +13,14 @@ export const store = new Vuex.Store({
   strict: true,
 
   modules: {
-    todos: todos.store,
-    users: users.store
-  }
+    todo: todo.store,
+    user: user.store,
+    auth: auth.store
+  },
+
+  plugins: [
+    ...auth.plugins
+  ]
 })
 
 

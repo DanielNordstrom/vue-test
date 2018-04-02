@@ -1,20 +1,27 @@
 <template>
   <div id="app">
+    <router-view></router-view>
+    <!--
     <TodoList />
     <UserList />
+    <LoginForm />
+  -->
   </div>
 </template>
 
 <script>
-import todos from './modules/todos'
-import users from './modules/users'
+import todo from './modules/todo'
+import user from './modules/user'
+import auth from './modules/auth'
 
 export default {
   name: 'app',
+  /*
   components: {
-    TodoList: todos.components.TodoList,
-    UserList: users.components.UserList
-  }
+    TodoList: todo.components.TodoList,
+    UserList: user.components.UserList,
+    LoginForm: auth.components.LoginForm
+  }*/
 }
 </script>
 

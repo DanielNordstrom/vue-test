@@ -1,0 +1,4 @@
+
+export const api_key = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MjI3NjMxNjUsImlhdCI6MTUyMjY3Njc2MCwic3ViIjoyfQ.GZJE0IbkLLprrrryjg24KfoE_t1yJYmqr4-pBOygvgI'
+
+export default api_key

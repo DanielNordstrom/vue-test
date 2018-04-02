@@ -1,8 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import todos from './modules/todos'
-import users from './modules/users'
+import PageNotFound from './errors/PageNotFound'
+
+import todo from './modules/todo'
+import user from './modules/user'
+import auth from './modules/auth'
 
 Vue.use(VueRouter)
 
@@ -10,8 +13,12 @@ Vue.use(VueRouter)
 export const router = new VueRouter({
   mode: 'history',
   base: __dirname,
-  ...todos.routes,
-  ...users.routes
+  routes: [
+    ...todo.routes,
+    ...user.routes,
+    ...auth.routes,
+    { path:'*', component: PageNotFound }
+  ]
 })
 
 export default router

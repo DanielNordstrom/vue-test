@@ -1,7 +1,7 @@
 <template>
   <div class='todo-wrapper'>
     <h2>TodoList</h2>
-    
+
     <div v-if='loading' class='loading'>
       Loading...
     </div>
@@ -35,7 +35,7 @@ import TodoForm from './TodoForm'
 import getters from '../getters'
 import actions from '../actions'
 
-const namespace = 'todos'
+const namespace = 'todo'
 const { mapGetters, mapActions } = createNamespacedHelpers(namespace)
 
 

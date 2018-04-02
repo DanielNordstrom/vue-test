@@ -27,8 +27,8 @@ import UserForm from './UserForm'
 import getters from '../getters'
 import actions from '../actions'
 
-const namespace = 'users'
-const { mapGetters, mapActions } = createNamespacedHelpers(namespace)
+const namespace = 'user'
+const { mapActions,mapGetters } = createNamespacedHelpers(namespace)
 
 
 export default {

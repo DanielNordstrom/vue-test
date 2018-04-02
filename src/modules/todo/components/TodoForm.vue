@@ -23,7 +23,7 @@ import { createNamespacedHelpers } from 'vuex'
 
 import actions from '../actions'
 
-const namespace = 'todos'
+const namespace = 'todo'
 const { mapActions } = createNamespacedHelpers(namespace)
 
 
