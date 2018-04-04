@@ -1,27 +1,28 @@
 <template>
   <div id="app">
-    <router-view></router-view>
-    <!--
-    <TodoList />
-    <UserList />
-    <LoginForm />
-  -->
+    <nav>
+      <ul>
+        <li>
+          <router-link to='/login'>Login</router-link>
+        </li>
+        <li>
+          <router-link to='/logout'>Logout</router-link>
+        </li>
+        <li>
+          <router-link to='/users'>Users</router-link>
+        </li>
+        <li>
+          <router-link to='/todos'>Todos</router-link>
+        </li>
+      </ul>
+    </nav>
+    <router-view />
   </div>
 </template>
 
 <script>
-import todo from './modules/todo'
-import user from './modules/user'
-import auth from './modules/auth'
-
 export default {
-  name: 'app',
-  /*
-  components: {
-    TodoList: todo.components.TodoList,
-    UserList: user.components.UserList,
-    LoginForm: auth.components.LoginForm
-  }*/
+  name: 'app'
 }
 </script>
 
@@ -31,7 +32,6 @@ export default {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-/*  text-align: center; */
   color: #2c3e50;
   margin-top: 60px;
 }

@@ -16,12 +16,13 @@ export const authPlugin = store => {
     // called after every mutation
     // The mutation comes in the format of { type, payload }
     if (mutation.type === 'auth/setToken'
-        && mutation.payload != null
+        && mutation.payload !== null
         && mutation.payload.length) {
+          console.log('set token to:', mutation.payload)
       localStorage.setItem('auth.store', mutation.payload)
     }
     console.log('mutation:', mutation)
-    console.log('store:', store)
+    console.log('store:', state)
   })
 }
 

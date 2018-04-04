@@ -1,16 +1,9 @@
 import Vue from 'vue'
-import api_key from '@/api_key'
-
-const headers = {
-  'Authorization': `Bearer ${api_key}`
-}
 
 
 export function fetchTodos() {
   return new Promise((resolve, reject) => {
-    Vue.http.get('http://localhost:5000/todos', {
-      headers
-    })
+    Vue.http.get('http://localhost:5000/todos')
     .then(response => { resolve(response.data) })
     .catch(error => { reject(error.statusText) })
   })
@@ -19,9 +12,7 @@ export function fetchTodos() {
 
 export function createTodo(todo) {
   return new Promise((resolve, reject) => {
-    Vue.http.post('http://localhost:5000/todos', todo, {
-      headers
-    })
+    Vue.http.post('http://localhost:5000/todos', todo)
     .then(response => { resolve(response.data) })
     .catch(error => { reject(error.statusText) })
   })
@@ -30,9 +21,7 @@ export function createTodo(todo) {
 
 export function updateTodo(uri, todo) {
   return new Promise((resolve, reject) => {
-    Vue.http.post('http://localhost:5000'+uri, todo, {
-      headers
-    })
+    Vue.http.post('http://localhost:5000'+uri, todo)
     .then(response => { resolve(response.data) })
     .catch(error => { reject(error.statusText) })
   })
@@ -41,9 +30,7 @@ export function updateTodo(uri, todo) {
 
 export function deleteTodo(uri) {
   return new Promise((resolve, reject) => {
-    Vue.http.delete('http://localhost:5000'+uri, {
-      headers
-    })
+    Vue.http.delete('http://localhost:5000'+uri)
     .then(response => { resolve(response.data) })
     .catch(error => { reject(error.statusText) })
   })
@@ -51,8 +38,8 @@ export function deleteTodo(uri) {
 
 
 export default {
-  fetchTodos: fetchTodos,
-  createTodo: createTodo,
-  updateTodo: updateTodo,
-  deleteTodo: deleteTodo
+  fetchTodos,
+  createTodo,
+  updateTodo,
+  deleteTodo
 }

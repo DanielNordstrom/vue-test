@@ -1,12 +1,7 @@
 <template>
   <section>
     Wut?
-    <div v-if='!this.loggedIn'>
-      You are now logged out. <router-link to='/login'>Click here to login.</router-link>
-    </div>
-    <div v-else>
-      still logged in for some reason...
-    </div>
+    {{ this.authStatus }}
   </section>
 </template>
 
@@ -16,6 +11,8 @@ import { createNamespacedHelpers } from 'vuex'
 
 import actions from '../actions'
 import getters from '../getters'
+import { AUTH_LOGOUT } from '../types'
+
 
 const namespace = 'auth'
 const { mapActions, mapGetters } = createNamespacedHelpers(namespace)
@@ -29,7 +26,17 @@ export default {
     this.logout()
   },
 
+
   computed: { ...mapGetters(Object.keys(getters)) },
-  methods: {...mapActions(Object.keys(actions)) }
+  methods: {
+    ...mapActions(Object.keys(actions)),
+
+    logout() {
+      this.$store.dispatch('auth/'+AUTH_LOGOUT)
+      .then(() => {
+        this.$router.push('/login')
+      })
+    },
+  }
 }
 </script>

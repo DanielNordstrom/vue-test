@@ -1,12 +1,9 @@
 <template>
   <section>
-    <div v-if='this.loggedIn'>
-      You are logged in. <router-link to='/logout'>Click here to logout.</router-link>
-    </div>
-    <div v-else class='login-form-wrapper'>
+    <div class='login-form-wrapper'>
       <fieldset>
         <legend>Login</legend>
-        <form class='login-form'>
+        <form class='login-form' @submit.prevent='login'>
           <div class='form-element'>
             <label for='email'>Email:</label>
             <input type='text' name='email' v-model='email' />
@@ -15,14 +12,10 @@
             <label for='password'>Password</label>
             <input type='password' name='password' v-model='password' />
           </div>
-          <button @click.stop.prevent='submitLogin'>Login</button>
+          <button type='submit'>Login</button>
           <button @click.stop.prevent='createAccount'>Create Account</button>
           <div>
-            Token: {{ this.getToken }}
-          </div>
-          <div v-if='this.loggedIn'>
-            You are logged in.
-            {{ this.loggedIn }}
+            Status: {{ this.authStatus }}
           </div>
         </form>
       </fieldset>
@@ -36,6 +29,8 @@ import { createNamespacedHelpers } from 'vuex'
 
 import actions from '../actions'
 import getters from '../getters'
+import { AUTH_REQUEST } from '../types'
+
 
 const namespace = 'auth'
 const { mapActions, mapGetters } = createNamespacedHelpers(namespace)
@@ -55,12 +50,12 @@ export default {
   methods: {
     ...mapActions(Object.keys(actions)),
 
-    submitLogin() {
-      let payload = {
-        email: this.email,
-        password: this.password
-      }
-      this.doLogin(payload)
+    login() {
+      const { email, password } = this
+      this.$store.dispatch('auth/'+AUTH_REQUEST, { email, password })
+      .then(() => {
+        this.$router.push('/')
+      })
     }
   }
 }

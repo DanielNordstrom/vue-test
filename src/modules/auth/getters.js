@@ -1,9 +1,8 @@
 
 export const getters = {
 
-  getToken: (state) => state.token,
-
-  loggedIn: (state) => (state.token) ? true : false
+  isAuthenticated: state => !!state.token,
+  authStatus: state => state.status,
 
 }
 

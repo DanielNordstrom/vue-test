@@ -2,6 +2,6 @@ import LoginForm from './LoginForm.vue'
 import Logout from './Logout.vue'
 
 export default {
-  LoginForm: LoginForm,
-  Logout: Logout
+  LoginForm,
+  Logout
 }
