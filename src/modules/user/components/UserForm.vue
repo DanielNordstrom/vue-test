@@ -25,6 +25,9 @@
         </div>
         <button @click.stop.prevent='postUser'>Create</button>
       </form>
+      <div>
+        {{ this.state.user.email }}
+      </div>
     </fieldset>
   </div>
 </template>
@@ -53,6 +56,14 @@ export default {
     }
   },
 
+  created() {
+    const id = this.$route.params.id
+    if (id) {
+      console.log('User ID:', id)
+      this.fetchUser(id)
+    }
+  },
+
   methods: {
     ...mapActions(Object.keys(actions)),
 
@@ -70,7 +81,8 @@ export default {
         admin: this.admin
       }
       this.createUser(payload)
-    }
+    },
+
   }
 }
 </script>

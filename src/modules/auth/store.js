@@ -8,8 +8,10 @@ export const store = {
 
   state() {
     return {
+      current_user: false,
       token: localStorage.getItem('auth-token') || '',
-      status: ''
+      status: '',
+      message: ''
     }
   },
 

@@ -6,7 +6,7 @@ import mutations from './mutations'
 import store from './store'
 import routes from './routes'
 
-//import plugins from './plugins'
+import plugin from './plugin'
 
 export default {
   actions,
@@ -16,5 +16,5 @@ export default {
   mutations,
   store,
   routes,
-//  plugins
+  plugin
 }

@@ -9,6 +9,15 @@ export function fetchUsers() {
 }
 
 
+export function fetchUser(id) {
+  return new Promise((resolve, reject) => {
+    Vue.http.get(`http://localhost:5000/users/${id}`)
+    .then(response => { resolve(response.data) })
+    .catch(error => { reject(error.statusText) })
+  })
+}
+
+
 export function createUser(user) {
   return new Promise((resolve, reject) => {
     Vue.http.post('http://localhost:5000/users', user)
@@ -38,6 +47,7 @@ export function deleteUser(uri) {
 
 export default {
   fetchUsers,
+  fetchUser,
   createUser,
   updateUser,
   deleteUser

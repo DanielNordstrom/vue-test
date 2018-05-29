@@ -7,6 +7,7 @@ export const store = {
   namespaced: true,
 
   state: {
+    user: {},
     users: []
   },
 

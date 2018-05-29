@@ -2,8 +2,16 @@
 import components from './components'
 
 export const routes = [
-  { path: '/users', component: components.UserList, props: true },
-  { path: '/users:id', component: components.UserForm, props: true }
+  {
+    path: '',
+    component: components.UserList,
+    props: true
+  },
+  {
+    path: ':id',
+    component: components.UserForm,
+    props: true
+  }
 ]
 
 

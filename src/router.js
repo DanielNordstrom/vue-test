@@ -15,7 +15,9 @@ export const router = new VueRouter({
   base: __dirname,
   routes: [
     ...todo.routes,
-    ...user.routes,
+    { path: '/users', component: user.components.User, children: [
+      ...user.routes,
+    ]},
     ...auth.routes,
     { path:'*', component: PageNotFound }
   ]

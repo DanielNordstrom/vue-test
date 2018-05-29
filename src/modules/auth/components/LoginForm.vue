@@ -14,8 +14,16 @@
           </div>
           <button type='submit'>Login</button>
           <button @click.stop.prevent='createAccount'>Create Account</button>
-          <div>
-            Status: {{ this.authStatus }}
+          <div v-if='this.authorizationFailed'>
+            Invalid username or password.
+          </div>
+          <div class='debug' v-if='this.debug'>
+            <div>
+              Status: {{ this.authStatus }}
+            </div>
+            <div>
+              Message: {{ this.authMessage }}
+            </div>
           </div>
         </form>
       </fieldset>

@@ -4,6 +4,10 @@ export const mutations = {
     state.users = users
   },
 
+  setUser(state, user) {
+    state.user = user
+  },
+
   appendUser(state, user) {
     state.users.push(user)
   },

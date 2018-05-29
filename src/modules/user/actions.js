@@ -6,6 +6,10 @@ export const actions = {
     commit('setUsers', await usersApi.fetchUsers())
   },
 
+  fetchUser: async ({ commit }, id) => {
+    commit('setUser', await usersApi.fetchUser(id))
+  },
+
   createUser: async ({ commit }, user) => {
     commit('appendUser', await usersApi.createUser(user))
   },

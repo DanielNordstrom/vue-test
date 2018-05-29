@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import loginApi from './api'
-import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './types'
+import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT, USER_REQUEST } from './types'
 
 
 export const actions = {
@@ -15,7 +15,7 @@ export const actions = {
         Vue.http.headers.common.Authorization = `Bearer ${token}`
         commit(AUTH_SUCCESS, token)
 //        dispatch(USER_REQUEST)
-        console.log('dispatch USER_REQUEST')
+        console.log('dispatch USER_REQUEST to load user for login email')
         resolve(resp)
       })
       .catch(err => {
@@ -33,6 +33,10 @@ export const actions = {
       delete Vue.http.headers.common.Authorization
       resolve()
     })
+  },
+
+  [USER_REQUEST]: ({ commit }) => {
+    console.log(commit)
   }
 }
 

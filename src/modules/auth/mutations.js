@@ -13,8 +13,9 @@ export const mutations = {
     state.token = token
   },
 
-  [AUTH_ERROR]: (state) => {
+  [AUTH_ERROR]: (state, message) => {
     state.status = 'error'
+    state.message = message
   },
 
   [AUTH_LOGOUT]: (state) => {

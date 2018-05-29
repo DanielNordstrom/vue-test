@@ -15,7 +15,7 @@
     </div>
 
     <hr />
-    <UserForm email='' />
+    <UserForm />
   </div>
 </template>
 

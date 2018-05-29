@@ -1,14 +1,26 @@
 import components from './components'
-import auth from '../auth'
+//import auth from '../auth'
+
+
+const loadSavedToken = (Vue) => {
+  const token = localStorage.getItem('auth-token')
+  if (token) {
+    Vue.http.headers.common.Authorization = `Bearer ${token}`
+  }
+}
+
 
 // This is your plugin object. It can be exported to be used anywhere.
-const MyPlugin = {
+export const MyPlugin = {
   // The install method is all that needs to exist on a plugin object
   // It takes the global Vue object as well as user-defined options.
-  install(Vue, { store }) {
-    if (!store) {
-      throw new Error('Please provide vuex store.')
-    }
+//  install(Vue, { store }) {
+//    if (!store) {
+//      throw new Error('Please provide vuex store.')
+//    }
+  install(Vue) {
+
+    loadSavedToken(Vue)
 
     Vue.component(components.LoginForm.name, components.LoginForm)
     Vue.component(components.Logout.name, components.Logout)
@@ -16,7 +28,7 @@ const MyPlugin = {
 //    store.registerModule('auth', authStore)
     Vue.prototype.$auth = {
       isAuthenticated() {
-        return auth.store.getters.isAuthenticated
+        return Vue.$store.auth.getters.isAuthenticated
       }
     }
 

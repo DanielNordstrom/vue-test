@@ -1,5 +1,14 @@
 <template>
   <div id="app">
+    <header>
+        <div v-if="this.$store.state.auth.user">
+          Logged in as: {{ this.$store.state.auth.user.firstname }}
+        </div>
+        <div v-else>
+          Please login.
+        </div>
+    </header>
+
     <nav>
       <ul>
         <li>
@@ -22,7 +31,9 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+
+  components: {}
 }
 </script>
 

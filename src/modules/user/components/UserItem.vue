@@ -1,9 +1,9 @@
 <template>
   <div>
     <h3>
-      {{ firstname }} {{ lastname }}
-      <span v-if='admin'>(admin)</span>
+      <router-link :to='this.uri'>{{ firstname }} {{ lastname }}</router-link>
     </h3>
+    <span v-if='admin'>(admin)</span>
     <h4>{{ email }}</h4>
 
     <div>Last seen: {{ last_seen }}</div>
