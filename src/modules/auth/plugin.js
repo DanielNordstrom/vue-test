@@ -1,6 +1,5 @@
 import components from './components'
-//import auth from '../auth'
-
+// import auth from '../auth'
 
 const loadSavedToken = (Vue) => {
   const token = localStorage.getItem('auth-token')
@@ -8,7 +7,6 @@ const loadSavedToken = (Vue) => {
     Vue.http.headers.common.Authorization = `Bearer ${token}`
   }
 }
-
 
 // This is your plugin object. It can be exported to be used anywhere.
 export const MyPlugin = {
@@ -18,16 +16,15 @@ export const MyPlugin = {
 //    if (!store) {
 //      throw new Error('Please provide vuex store.')
 //    }
-  install(Vue) {
-
+  install (Vue) {
     loadSavedToken(Vue)
 
     Vue.component(components.LoginForm.name, components.LoginForm)
     Vue.component(components.Logout.name, components.Logout)
 
-//    store.registerModule('auth', authStore)
+    // store.registerModule('auth', authStore)
     Vue.prototype.$auth = {
-      isAuthenticated() {
+      isAuthenticated () {
         return Vue.$store.auth.getters.isAuthenticated
       }
     }
@@ -36,7 +33,7 @@ export const MyPlugin = {
     Vue.mixin({
       // Anything added to a mixin will be injected into all components
       // In this case, the mounted() method runs when the components is added
-      mounted() {
+      mounted () {
         console.log('Mounted!')
       }
     })

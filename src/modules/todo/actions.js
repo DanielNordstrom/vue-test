@@ -1,6 +1,5 @@
 import todosApi from './api'
 
-
 export const actions = {
   fetchTodos: async ({ commit }) => {
     commit('setTodos', await todosApi.fetchTodos())
@@ -15,6 +14,5 @@ export const actions = {
     commit('removeTodo', uri)
   }
 }
-
 
 export default actions

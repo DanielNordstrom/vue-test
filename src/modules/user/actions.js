@@ -1,6 +1,5 @@
 import usersApi from './api'
 
-
 export const actions = {
   fetchUsers: async ({ commit }) => {
     commit('setUsers', await usersApi.fetchUsers())
@@ -19,6 +18,5 @@ export const actions = {
     commit('removeUser', uri)
   }
 }
-
 
 export default actions
