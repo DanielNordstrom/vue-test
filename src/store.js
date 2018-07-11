@@ -7,7 +7,6 @@ import auth from './modules/auth'
 
 Vue.use(Vuex)
 
-
 export const store = new Vuex.Store({
   strict: true,
 
@@ -17,6 +16,5 @@ export const store = new Vuex.Store({
     auth: auth.store
   }
 })
-
 
 export default store

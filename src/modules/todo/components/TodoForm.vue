@@ -17,7 +17,6 @@
   </div>
 </template>
 
-
 <script>
 import { createNamespacedHelpers } from 'vuex'
 
@@ -26,11 +25,10 @@ import actions from '../actions'
 const namespace = 'todo'
 const { mapActions } = createNamespacedHelpers(namespace)
 
-
 export default {
   name: 'TodoForm',
 
-  data() {
+  data () {
     return {
       title: '',
       description: '',
@@ -41,7 +39,7 @@ export default {
   methods: {
     ...mapActions(Object.keys(actions)),
 
-    postTodo() {
+    postTodo () {
       let payload = {
         title: this.title,
         description: this.description,
@@ -52,7 +50,6 @@ export default {
   }
 }
 </script>
-
 
 <style scoped>
 .todo-form-wrapper {

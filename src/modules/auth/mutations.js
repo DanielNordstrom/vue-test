@@ -1,7 +1,6 @@
 
 import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './types'
 
-
 export const mutations = {
 
   [AUTH_REQUEST]: (state) => {

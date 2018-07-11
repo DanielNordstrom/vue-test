@@ -1,9 +1,10 @@
 import store from '../../store'
 import components from './components'
 
-
 export const requireAuthentication = (to, from, next) => {
+  console.log('requireAuthentication called')
   if (store.getters.isAuthenticated) {
+    console.log('isAuthenticated === true')
     next()
     return
   }
@@ -30,10 +31,9 @@ export const routes = [
   {
     path: '/logout',
     component: components.Logout,
-    props: true,
-    beforeEnter: requireAuthentication
+    props: true
+    // beforeEnter: requireAuthentication
   }
 ]
-
 
 export default routes
