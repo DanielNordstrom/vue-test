@@ -26,6 +26,7 @@ export const actions = {
   },
 
   [AUTH_LOGOUT]: ({ commit }) => {
+    console.log('AUTH_LOGOUT action called')
     return new Promise((resolve) => {
       commit(AUTH_LOGOUT)
       localStorage.removeItem('auth-token')

@@ -26,7 +26,7 @@
         <button @click.stop.prevent='postUser'>Create</button>
       </form>
       <div>
-        {{ this.state.user.email }}
+        {{ this.email }}
       </div>
     </fieldset>
   </div>

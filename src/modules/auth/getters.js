@@ -1,7 +1,7 @@
 
 export const getters = {
 
-  debug: state => state,
+  debug: state => false,
   isAuthenticated: state => !!state.token,
   authStatus: state => state.status,
   authMessage: state => state.message,

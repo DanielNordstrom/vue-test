@@ -49,7 +49,7 @@ export default {
   methods: { ...mapActions(Object.keys(actions)) },
 
   created () {
-    //    console.log('auth test:', this.$auth.isAuthenticated())
+    // console.log('auth test:', this.$auth.isAuthenticated())
     this.fetchUsers().then(() => (this.loading = false))
   }
 }

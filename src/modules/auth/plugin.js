@@ -22,7 +22,7 @@ export const MyPlugin = {
     Vue.component(components.LoginForm.name, components.LoginForm)
     Vue.component(components.Logout.name, components.Logout)
 
-    //    store.registerModule('auth', authStore)
+    // store.registerModule('auth', authStore)
     Vue.prototype.$auth = {
       isAuthenticated () {
         return Vue.$store.auth.getters.isAuthenticated
