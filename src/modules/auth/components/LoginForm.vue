@@ -36,7 +36,7 @@ import { createNamespacedHelpers } from 'vuex'
 
 import actions from '../actions'
 import getters from '../getters'
-import { AUTH_REQUEST } from '../types'
+import types from '../types'
 
 const namespace = 'auth'
 const { mapActions, mapGetters } = createNamespacedHelpers(namespace)
@@ -57,7 +57,7 @@ export default {
 
     login () {
       const { email, password } = this
-      this.$store.dispatch('auth/' + AUTH_REQUEST, { email, password })
+      this.$store.dispatch('auth/' + types.AUTH_REQUEST, { email, password })
         .then(() => {
           this.$router.push('/')
         })

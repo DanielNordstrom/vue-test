@@ -35,6 +35,8 @@ import TodoForm from './TodoForm'
 import getters from '../getters'
 import actions from '../actions'
 
+import types from '../types'
+
 const namespace = 'todo'
 const { mapGetters, mapActions } = createNamespacedHelpers(namespace)
 
@@ -54,10 +56,17 @@ export default {
   },
 
   computed: { ...mapGetters(Object.keys(getters)) },
-  methods: { ...mapActions(Object.keys(actions)) },
+  methods: {
+    ...mapActions(Object.keys(actions)),
+
+    deleteTodo (uri) {
+      this.$store.dispatch('todo/' + types.TODO_DELETE, uri)
+    }
+  },
 
   created () {
-    this.fetchTodos().then(() => (this.loading = false))
+    this.$store.dispatch('todo/' + types.TODO_FETCH_ALL)
+      .then(() => (this.loading = false))
   }
 }
 </script>

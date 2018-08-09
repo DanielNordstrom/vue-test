@@ -22,6 +22,8 @@ import { createNamespacedHelpers } from 'vuex'
 
 import actions from '../actions'
 
+import types from '../types'
+
 const namespace = 'todo'
 const { mapActions } = createNamespacedHelpers(namespace)
 
@@ -45,7 +47,7 @@ export default {
         description: this.description,
         done: this.done
       }
-      this.createTodo(payload)
+      this.$store.dispatch('todo/' + types.TODO_CREATE, payload)
     }
   }
 }

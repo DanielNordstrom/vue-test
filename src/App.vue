@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <header>
-        <div v-if="this.$store.state.auth.user">
-          Logged in as: {{ this.$store.state.auth.user.firstname }}
+        <div v-if="this.$store.state.auth.current_user">
+          Logged in as: {{ this.$store.state.auth.current_user.firstname }}
         </div>
         <div v-else>
           Please login.
@@ -11,6 +11,9 @@
 
     <nav>
       <ul>
+        <li>
+          <router-link to='/'>Home</router-link>
+        </li>
         <li>
           <router-link to='/login'>Login</router-link>
         </li>

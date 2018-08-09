@@ -1,23 +1,22 @@
-
-import { AUTH_REQUEST, AUTH_SUCCESS, AUTH_ERROR, AUTH_LOGOUT } from './types'
+import types from './types'
 
 export const mutations = {
 
-  [AUTH_REQUEST]: (state) => {
+  [types.AUTH_REQUEST]: (state) => {
     state.status = 'loading'
   },
 
-  [AUTH_SUCCESS]: (state, token) => {
+  [types.AUTH_SUCCESS]: (state, token) => {
     state.status = 'success'
     state.token = token
   },
 
-  [AUTH_ERROR]: (state, message) => {
+  [types.AUTH_ERROR]: (state, message) => {
     state.status = 'error'
     state.message = message
   },
 
-  [AUTH_LOGOUT]: (state) => {
+  [types.AUTH_LOGOUT]: (state) => {
     state.status = ''
   }
 }

@@ -1,17 +1,18 @@
 import todosApi from './api'
+import types from './types'
 
 export const actions = {
-  fetchTodos: async ({ commit }) => {
-    commit('setTodos', await todosApi.fetchTodos())
+  [types.TODO_FETCH_ALL]: async ({ commit }) => {
+    commit(types.TODO_SET_ALL, await todosApi.fetchTodos())
   },
 
-  createTodo: async ({ commit }, todo) => {
-    commit('appendTodo', await todosApi.createTodo(todo))
+  [types.TODO_CREATE]: async ({ commit }, todo) => {
+    commit(types.TODO_APPEND, await todosApi.createTodo(todo))
   },
 
-  deleteTodo: async ({ commit }, uri) => {
+  [types.TODO_DELETE]: async ({ commit }, uri) => {
     await todosApi.deleteTodo(uri)
-    commit('removeTodo', uri)
+    commit(types.TODO_REMOVE, uri)
   }
 }
 
