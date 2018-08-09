@@ -9,7 +9,6 @@ import router from './router'
 
 import auth from './modules/auth'
 
-
 Vue.config.productionTip = false
 
 // Uses $http
@@ -17,9 +16,7 @@ Vue.use(VueResource)
 
 Vue.use(auth.plugin)
 
-
 sync(store, router)
-
 
 new Vue({
   router,

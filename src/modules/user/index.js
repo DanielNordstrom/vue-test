@@ -6,7 +6,6 @@ import mutations from './mutations'
 import store from './store'
 import routes from './routes'
 
-
 export default {
   actions,
   api,

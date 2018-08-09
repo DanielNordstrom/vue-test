@@ -28,13 +28,12 @@ import getters from '../getters'
 import actions from '../actions'
 
 const namespace = 'user'
-const { mapActions,mapGetters } = createNamespacedHelpers(namespace)
-
+const { mapActions, mapGetters } = createNamespacedHelpers(namespace)
 
 export default {
   name: 'UserList',
 
-  data() {
+  data () {
     return {
       loading: true,
       error: null
@@ -47,11 +46,11 @@ export default {
   },
 
   computed: { ...mapGetters(Object.keys(getters)) },
-  methods:  { ...mapActions(Object.keys(actions)) },
+  methods: { ...mapActions(Object.keys(actions)) },
 
-  created() {
-//    console.log('auth test:', this.$auth.isAuthenticated())
-    this.fetchUsers().then(() => this.loading = false)
+  created () {
+    //    console.log('auth test:', this.$auth.isAuthenticated())
+    this.fetchUsers().then(() => (this.loading = false))
   }
 }
 </script>

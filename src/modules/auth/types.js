@@ -4,7 +4,6 @@ export const AUTH_ERROR = 'AUTH_ERROR'
 export const AUTH_LOGOUT = 'AUTH_LOGOUT'
 export const USER_REQUEST = 'USER_REQUEST'
 
-
 export default {
   AUTH_REQUEST,
   AUTH_SUCCESS,

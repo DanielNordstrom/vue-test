@@ -38,13 +38,10 @@ import actions from '../actions'
 const namespace = 'todo'
 const { mapGetters, mapActions } = createNamespacedHelpers(namespace)
 
-
-
-
 export default {
   name: 'TodoList',
 
-  data() {
+  data () {
     return {
       loading: true,
       error: null
@@ -57,10 +54,10 @@ export default {
   },
 
   computed: { ...mapGetters(Object.keys(getters)) },
-  methods:  { ...mapActions(Object.keys(actions)) },
+  methods: { ...mapActions(Object.keys(actions)) },
 
-  created() {
-    this.fetchTodos().then(() => this.loading = false)
+  created () {
+    this.fetchTodos().then(() => (this.loading = false))
   }
 }
 </script>

@@ -31,7 +31,6 @@
   </section>
 </template>
 
-
 <script>
 import { createNamespacedHelpers } from 'vuex'
 
@@ -39,15 +38,13 @@ import actions from '../actions'
 import getters from '../getters'
 import { AUTH_REQUEST } from '../types'
 
-
 const namespace = 'auth'
 const { mapActions, mapGetters } = createNamespacedHelpers(namespace)
-
 
 export default {
   name: 'LoginForm',
 
-  data() {
+  data () {
     return {
       email: '',
       password: ''
@@ -58,17 +55,16 @@ export default {
   methods: {
     ...mapActions(Object.keys(actions)),
 
-    login() {
+    login () {
       const { email, password } = this
-      this.$store.dispatch('auth/'+AUTH_REQUEST, { email, password })
-      .then(() => {
-        this.$router.push('/')
-      })
+      this.$store.dispatch('auth/' + AUTH_REQUEST, { email, password })
+        .then(() => {
+          this.$router.push('/')
+        })
     }
   }
 }
 </script>
-
 
 <style scoped>
 .login-form-wrapper {

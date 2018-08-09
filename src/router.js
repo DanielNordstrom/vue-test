@@ -9,17 +9,18 @@ import auth from './modules/auth'
 
 Vue.use(VueRouter)
 
-
 export const router = new VueRouter({
   mode: 'history',
   base: __dirname,
   routes: [
     ...todo.routes,
-    { path: '/users', component: user.components.User, children: [
-      ...user.routes,
-    ]},
+    {
+      path: '/users',
+      component: user.components.User,
+      children: [ ...user.routes ]
+    },
     ...auth.routes,
-    { path:'*', component: PageNotFound }
+    { path: '*', component: PageNotFound }
   ]
 })
 

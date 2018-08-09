@@ -32,7 +32,6 @@
   </div>
 </template>
 
-
 <script>
 import { createNamespacedHelpers } from 'vuex'
 
@@ -41,11 +40,10 @@ import actions from '../actions'
 const namespace = 'user'
 const { mapActions } = createNamespacedHelpers(namespace)
 
-
 export default {
   name: 'UserForm',
 
-  data() {
+  data () {
     return {
       email: '',
       password: '',
@@ -56,7 +54,7 @@ export default {
     }
   },
 
-  created() {
+  created () {
     const id = this.$route.params.id
     if (id) {
       console.log('User ID:', id)
@@ -67,9 +65,9 @@ export default {
   methods: {
     ...mapActions(Object.keys(actions)),
 
-    postUser() {
+    postUser () {
       if (this.password !== this.verify_password) {
-        console.error("Passwords do not match!")
+        console.error('Passwords do not match!')
         return
       }
 
@@ -81,12 +79,10 @@ export default {
         admin: this.admin
       }
       this.createUser(payload)
-    },
-
+    }
   }
 }
 </script>
-
 
 <style scoped>
 .user-form-wrapper {

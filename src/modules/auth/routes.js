@@ -1,7 +1,6 @@
 import store from '../../store'
 import components from './components'
 
-
 export const requireAuthentication = (to, from, next) => {
   if (store.getters.isAuthenticated) {
     next()
@@ -34,6 +33,5 @@ export const routes = [
     beforeEnter: requireAuthentication
   }
 ]
-
 
 export default routes
