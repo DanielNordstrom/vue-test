@@ -58,6 +58,9 @@ export default {
     login () {
       const { email, password } = this
       this.$store.dispatch('auth/' + types.AUTH_REQUEST, { email, password })
+        .then(resp => {
+          this.$store.dispatch('auth/' + types.USER_REQUEST, resp.user_id)
+        })
         .then(() => {
           this.$router.push('/')
         })

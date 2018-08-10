@@ -36,7 +36,11 @@
 export default {
   name: 'app',
 
-  components: {}
+  components: {},
+
+  created () {
+    console.log('Load user by token')
+  }
 }
 </script>
 

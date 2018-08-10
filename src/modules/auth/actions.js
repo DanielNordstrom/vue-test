@@ -2,6 +2,8 @@ import Vue from 'vue'
 import loginApi from './api'
 import types from './types'
 
+import userApi from '../user/api'
+
 export const actions = {
 
   [types.AUTH_REQUEST]: ({ commit }, user) => {
@@ -13,9 +15,6 @@ export const actions = {
           localStorage.setItem('auth-token', token)
           Vue.http.headers.common.Authorization = `Bearer ${token}`
           commit(types.AUTH_SUCCESS, token)
-          // this.$store.dispatch(USER_REQUEST)
-          // Vue.store.dispatch(types.USER_REQUEST)
-          console.log('dispatch USER_REQUEST to load user for login email')
           resolve(resp)
         })
         .catch(err => {
@@ -36,8 +35,13 @@ export const actions = {
     })
   },
 
-  [types.USER_REQUEST]: ({ commit }) => {
-    console.log(commit)
+  [types.USER_REQUEST]: async ({ commit }, id) => {
+    return new Promise((resolve, reject) => {
+      userApi.fetchUser(id)
+        .then(resp => {
+          commit(types.USER_REQUEST, resp)
+        })
+    })
   }
 }
 

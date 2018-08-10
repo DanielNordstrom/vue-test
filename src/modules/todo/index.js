@@ -5,6 +5,7 @@ import getters from './getters'
 import mutations from './mutations'
 import store from './store'
 import routes from './routes'
+import types from './types'
 
 export default {
   actions,
@@ -13,5 +14,6 @@ export default {
   getters,
   mutations,
   store,
-  routes
+  routes,
+  types
 }

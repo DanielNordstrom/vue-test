@@ -18,6 +18,10 @@ export const mutations = {
 
   [types.AUTH_LOGOUT]: (state) => {
     state.status = ''
+  },
+
+  [types.USER_REQUEST]: (state, user) => {
+    state.current_user = user
   }
 }
 

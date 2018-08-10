@@ -5,6 +5,7 @@ import getters from './getters'
 import mutations from './mutations'
 import store from './store'
 import routes from './routes'
+import types from './types'
 
 import plugin from './plugin'
 
@@ -16,5 +17,6 @@ export default {
   mutations,
   store,
   routes,
-  plugin
+  plugin,
+  types
 }
