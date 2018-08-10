@@ -25,9 +25,6 @@
         </div>
         <button @click.stop.prevent='postUser'>Create</button>
       </form>
-      <div>
-        {{ this.email }}
-      </div>
     </fieldset>
   </div>
 </template>
@@ -36,6 +33,8 @@
 import { createNamespacedHelpers } from 'vuex'
 
 import actions from '../actions'
+
+import types from '../types'
 
 const namespace = 'user'
 const { mapActions } = createNamespacedHelpers(namespace)
@@ -78,7 +77,8 @@ export default {
         lastname: this.lastname,
         admin: this.admin
       }
-      this.createUser(payload)
+
+      this.$store.dispatch('user/' + types.USER_CREATE, payload)
     }
   }
 }

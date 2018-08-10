@@ -26,7 +26,7 @@ export function createUser (user) {
 
 export function updateUser (uri, user) {
   return new Promise((resolve, reject) => {
-    Vue.http.post('http://localhost:5000' + uri, user)
+    Vue.http.put('http://localhost:5000' + uri, user)
       .then(response => { resolve(response.data) })
       .catch(error => { reject(error.statusText) })
   })

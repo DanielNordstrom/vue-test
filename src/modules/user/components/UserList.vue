@@ -6,6 +6,9 @@
       <ul v-if='this.getUsersCount' class='user-list'>
         <li v-for='user in this.getUsers' v-bind:key='user.uri'>
           <UserItem v-bind='user' />
+          <div>
+            URI: {{ user.uri }}
+          </div>
           <button @click='deleteUser(user.uri)'>Delete</button>
         </li>
       </ul>
@@ -27,8 +30,9 @@ import UserForm from './UserForm'
 import getters from '../getters'
 import actions from '../actions'
 
-const namespace = 'user'
-const { mapActions, mapGetters } = createNamespacedHelpers(namespace)
+import types from '../types'
+
+const { mapActions, mapGetters } = createNamespacedHelpers(types.NAMESPACE)
 
 export default {
   name: 'UserList',
@@ -46,11 +50,19 @@ export default {
   },
 
   computed: { ...mapGetters(Object.keys(getters)) },
-  methods: { ...mapActions(Object.keys(actions)) },
+  methods: {
+    ...mapActions(Object.keys(actions)),
+
+    deleteUser (uri) {
+      this.$store.dispatch(types.NAMESPACE + '/' + types.USER_DELETE, uri)
+    }
+  },
 
   created () {
     // console.log('auth test:', this.$auth.isAuthenticated())
-    this.fetchUsers().then(() => (this.loading = false))
+    this.$store.dispatch(types.NAMESPACE + '/' + types.USER_FETCH_ALL)
+      .then(() => (this.loading = false))
+    // this.fetchUsers().then(() => (this.loading = false))
   }
 }
 </script>
