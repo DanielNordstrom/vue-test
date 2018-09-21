@@ -1,10 +1,14 @@
 import components from './components'
+// import store from './store'
+// import types from './types'
 // import auth from '../auth'
 
 const loadSavedToken = (Vue) => {
   const token = localStorage.getItem('auth-token')
   if (token) {
     Vue.http.headers.common.Authorization = `Bearer ${token}`
+
+    // Load the user
   }
 }
 
@@ -34,7 +38,7 @@ export const MyPlugin = {
       // Anything added to a mixin will be injected into all components
       // In this case, the mounted() method runs when the components is added
       mounted () {
-        console.log('Mounted!')
+        console.log('Auth mixin mounted!')
       }
     })
   }
