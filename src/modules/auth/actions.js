@@ -26,7 +26,7 @@ export const actions = {
   },
 
   [types.AUTH_LOGOUT]: ({ commit }) => {
-    console.log('types.AUTH_LOGOUT action called')
+    // console.log('types.AUTH_LOGOUT action called')
     return new Promise((resolve) => {
       commit(types.AUTH_LOGOUT)
       localStorage.removeItem('auth-token')
@@ -36,11 +36,12 @@ export const actions = {
   },
 
   [types.USER_REQUEST]: async ({ commit }, id) => {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       userApi.fetchUser(id)
         .then(resp => {
           commit(types.USER_REQUEST, resp)
         })
+        .then(() => resolve)
     })
   }
 }

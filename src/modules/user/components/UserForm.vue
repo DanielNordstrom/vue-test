@@ -56,7 +56,6 @@ export default {
   created () {
     const id = this.$route.params.id
     if (id) {
-      console.log('User ID:', id)
       this.fetchUser(id)
     }
   },
@@ -66,7 +65,7 @@ export default {
 
     postUser () {
       if (this.password !== this.verify_password) {
-        console.error('Passwords do not match!')
+        // console.error('Passwords do not match!')
         return
       }
 

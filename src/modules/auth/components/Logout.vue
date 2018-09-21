@@ -19,7 +19,7 @@ export default {
   name: 'Logout',
 
   created () {
-    console.log('loaded logout component')
+    // console.log('loaded logout component')
     this.logout()
   },
 

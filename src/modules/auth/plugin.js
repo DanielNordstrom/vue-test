@@ -38,7 +38,7 @@ export const MyPlugin = {
       // Anything added to a mixin will be injected into all components
       // In this case, the mounted() method runs when the components is added
       mounted () {
-        console.log('Auth mixin mounted!')
+      //  console.log('Auth mixin mounted!')
       }
     })
   }

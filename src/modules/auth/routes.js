@@ -2,9 +2,9 @@ import store from '../../store'
 import components from './components'
 
 export const requireAuthentication = (to, from, next) => {
-  console.log('requireAuthentication called')
+  // console.log('requireAuthentication called')
   if (store.getters.isAuthenticated) {
-    console.log('isAuthenticated === true')
+    // console.log('isAuthenticated === true')
     next()
     return
   }

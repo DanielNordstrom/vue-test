@@ -39,7 +39,7 @@ export default {
   components: {},
 
   created () {
-    console.log('Load user by token')
+    // console.log('Load user by token')
   }
 }
 </script>
